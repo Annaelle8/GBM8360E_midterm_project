@@ -63,10 +63,3 @@ of k-space to the bottom. The $n$-th $k_y$ line is acquired at [](#eqLineTime):
 $$ t_n(k_y) = n \cdot TR + TE, \qquad n = 0, 1, \dots, N_{ky} - 1 $$ (eqLineTime)
 
 So an image with $N_{ky}$ phase-encoding lines therefore takes about $N_{ky} \cdot TR$ seconds to acquire. This can lead to long scan times, particularly when a large number of phase-encoding lines is required. This motivates the development of accelerated acquisition techniques.
-
-:::{seealso} Who really had this idea?
-The idea of building an image from magnetic field gradients comes from Paul Lauterbur
-{cite:p}`Lauterbur1973`. Reading each line with a gradient echo and stepping through
-k-space line by line is the textbook Cartesian acquisition described in
-{cite:p}`Bernstein2004` and {cite:p}`Nishimura2010`.
-:::

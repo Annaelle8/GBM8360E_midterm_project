@@ -24,4 +24,9 @@ Some of these methods can be combined to accelerate the acquisition time even mo
 - Compressed Sensing: skips lines at random space instead of regularly, so the missing information looks like noise that can be removed.
 - Deep-learning reconstruction: A neural network trained on thousands k-space to guess the missing lines.
 
+## References
 
+Some references used to build this book:
+
+- Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources. doi: 10.5281/zenodo.5547020: used to learn some MRI physics concepts
+- Claude (Anthropic): used to generate the comics and to help build the flower simulations.

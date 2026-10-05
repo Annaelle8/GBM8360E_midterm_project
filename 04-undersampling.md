@@ -39,7 +39,7 @@ direction in which lines are skipped (the phase-encode direction) folds.
 :::
 
 ## Mask design
-In a standard cartesian undersampling {cite:p}`Griswold2002`:
+In a standard cartesian undersampling (see [](./06-grappa.md)) {cite:p}`Griswold2002`:
 - Central k-space lines are always acquired: they carry ~90% of the image energy and cannot be sacrificed. There are essential for stable reconstruction. They are called Autoalibration Signal (ACS)
 - Outer lines are randomly subsampled at rate $1/R$ introduces incoherent aliasing
 
@@ -52,12 +52,12 @@ Undersampling by a factor of $R$ = 1, 2, 4 ou 8 with a full acquuired center (AC
 :::
 
 :::{tip} Reading the figure
-There is no motion here, so the top plot only shows the acquired $k_y$ lines as black dots along the time axis. As $R$ increases, fewer lines are acquired and the dots stop earlier: the acquisition time is shorter, you can see its value above the top plot. On the k-space, the missing lines appear as black rows, while the central band (ACS) is always fully sampled.
+As $R$ increases, fewer lines are acquired and the acquisition time is shorter, you can see its value above the top plot. On the k-space, the missing lines appear as black rows, while the central band (ACS) is always fully sampled.
 :::
 
-The k-space was downsampled by a factor $R$ in the phase encoding direction by keeping every $R$ k-space line. This increases the sampling interval ${\Delta k}$ in that direction. Since $FOV = \frac{1}{\Delta k}$, the FOV is reduced by a factor $R$ in the downsampled direction. However, $k_{max}$ remains unchanged, so the spatial resolution is preserved. The magnitude and phase images have therefore a smaller FOV with aliasing artefact (wrap-around).
+The k-space was downsampled by a factor $R$ in the phase encoding direction by keeping every $R$ k-space line. Same as before, this increases the sampling interval ${\Delta k}$ in that direction. Since $FOV = \frac{1}{\Delta k}$, the FOV is reduced by a factor $R$ in the downsampled direction. However, $k_{max}$ remains unchanged, so the spatial resolution is preserved. The magnitude and phase images have therefore a smaller FOV with aliasing artefact (wrap-around).
 
-## Reconstruction
+### Reconstruction
 
 Sampling occur in an MRI acquisition when using an fast imaging sequence to reduce the acquisition time. If the undersampled k-space is directly reconstructed using an IFFT, the resulting image will contain aliasing artifacts as shown before. But reconstruction techniques such as SENSE or GRAPPA can be used to interpolate the missing k-space line allowing to approximately recover the reference image. 
 

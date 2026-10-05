@@ -31,7 +31,7 @@ The scanner therefore starts with four incomplete k-spaces, learns how the coils
 
 ## How Grappa guesses a missing point
 
-The signal measured by different coils is not independent: all coils observe the same object, but with different spatial sensitivities. This creates structured relationships between their k-space data. GRAPPA exploits these relationships locally. A missing k-space point in one coil can be predicted from nearby acquired points across all coils. The coefficients used to make this prediction are called the GRAPPA weights, or the kernel. Each coil has its own set of weights.
+The signal measured by different coils is not independent: all coils observe the same object, but with different spatial sensitivities. This creates structured relationships between their k-space data. GRAPPA exploits these relationships locally {cite:p}`Griswold2002`. A missing k-space point in one coil can be predicted from nearby acquired points across all coils. The coefficients used to make this prediction are called the GRAPPA weights, or the kernel. Each coil has its own set of weights.
 
 :::{important} The key idea is simple
 Learn the prediction rule where all the data are known, then use that rule where data are missing.
@@ -146,9 +146,3 @@ fills the gaps, the copies disappear. As with SENSE, the image gets noisier as $
 | Weakness | Errors in the maps give residual folding | The ACS lines take extra time; kernel errors give residual artifacts |
 
 Both methods pay the same price in noise, captured by the g-factor of Equation [](#eqGfactor).
-
-
-:::{seealso} Who really had this idea?
-GRAPPA was introduced by Mark Griswold, Peter Jakob and colleagues in Würzburg {cite:p}`Griswold2002`, generalising earlier k-space methods such as SMASH
-{cite:p}`Sodickson1997`. The last author of the GRAPPA paper is Axel Haase, whom we already met in [](./02-spoiled-gre.md).
-:::

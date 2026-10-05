@@ -54,10 +54,3 @@ Acquiring the k-space lines in two directions can create ghosting artifact when 
 :label: epiGhost
 EPI ghost: a phase mismatch between the left-to-right and right-to-left lines creates a faint copy shifted by half the field of view.
 :::
-
-
-:::{seealso} Who really had this idea?
-Peter Mansfield proposed echo-planar imaging in 1977 {cite:p}`Mansfield1977`, decades
-before scanner hardware could switch gradients fast enough to use it routinely. He
-shared the 2003 Nobel Prize in Physiology or Medicine with Paul Lauterbur.
-:::

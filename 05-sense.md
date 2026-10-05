@@ -21,7 +21,7 @@ Scientist C showed that painting fewer lines is fast but leaves copies. Scientis
 
 ## SENSE
 
-SENSE needs a short, low-resolution reference scan to measure the sensitivity map of each coil before the real acquisition.
+SENSE needs a short, low-resolution reference scan to measure the sensitivity map of each coil before the real acquisition {cite:p} `Pruessmann1999`.
 
 :::{figure} #figCoilMaps
 :label: coilMaps
@@ -36,7 +36,7 @@ The same flower seen by each coil.
 :::
 
 :::{note}
-The individual coil images can then be combined, for example using an RMS or SNR-weighted coil combination.
+The individual coil images can then be combined, for example using an RSS or SNR-weighted coil combination.
 :::
 
 Now consider accelerated imaging. Instead of acquiring all k-space lines, each coil acquires only a fraction of them. Here, with an acceleration factor of $R=2$, the missing lines cause the image to fold: two spatially separated copies of the flower overlap in the same reconstructed image. The copies overlap in the same way for every coil, but their brightness differs: this difference is the extra information SENSE uses to determine which signal belongs to which spatial location and so unfold the image.
