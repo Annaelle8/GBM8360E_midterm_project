@@ -1,36 +1,41 @@
 ---
-title: My MyST Book
-description: An interactive book built with MyST
+title: Fast imaging for an GRE sequence
+description: GBM8360E midterm project
 ---
-
-:::{tip} Start here
-This is a template. Replace this page, and the chapters listed in the sidebar, with
-your own content.
-
-Your first job is simply to get it **published**: use this template, enable GitHub
-Pages once, and let the Action build your site. Then start writing.
-:::
 
 ## About this book
 
-**TODO:** replace this with a paragraph about what your book covers.
+The main question behind this book is simple:
 
-Built with [MyST Markdown](https://mystmd.org): Markdown for the prose, Jupyter
-notebooks for the computation, one `myst.yml` for the configuration, and a GitHub
-Action that rebuilds and republishes on every push.
+How can we make an MRI scan faster without sacrificing image quality?
 
-## Why interactive?
+To explore this question, we focus on a single MRI sequence: the gradient echo (GRE) sequence and explore different ways to accelerate its acquisition.
 
-A static figure is one parameter choice out of infinitely many, frozen at publication.
-The author explored a whole parameter space; the reader gets one frame of it.
+## The story
 
-An interactive figure hands that space back. It costs almost nothing to add, and it
-often explains in three seconds what a paragraph of caption cannot.
+Every chapter opens with a short comic, then connects the story to the physics of a real MRI scanner. Indeed, eather than starting with equations, the book follows a small crew of scientists with one mission: get a picture of a flower into a computer, without a digital camera. All they have is a strange machine that turns a painted canvas into a digital image, using the Fourier transform. The catch: painting the canvas takes time. Each scientist has a clever idea to paint faster without losing information. 
 
-## What's here
+:::{figure} images/comics/00-prologue.svg
+:label: comicPrologue
+:alt: Professor Fourier shows a flower on a pedestal while the crew of scientists cheers.
+:::
 
-- [](./01-getting-started.md) — how to build, publish and debug this book
-- [](./02-interactive-figures.md) — the interactive figure pattern, with a worked example
+:::{important} The painting is not the flower
+Our scientist do not paint the flower itself. They paint a strange canvas full of stripes, which contains all the information needed by the Fourier transform to rebuild the flower. Physicists call this canvas: the k-space.
+:::
 
-Add your own pages by creating a `.md` file and listing it in the `toc` section of
-`myst.yml`.
+Every chapter also contains interactive figures: drag the sliders and watch what happens.
+
+## Contents
+
+1. [](./01-Physics_background.md): the Fourier transform
+2. [](./02-gre.md): the conventional gradient echo
+3. [](./03-epi.md): echo-planar imaging
+4. [](./04-undersampling.md): k-space undersampling
+5. [](./05-sense.md): parallel imaging with SENSE
+6. [](./06-grappa.md): parallel imaging with GRAPPA
+7. [](./08-epilogue.md): conclusion
+
+:::{note}
+Built with [MyST Markdown](https://mystmd.org): Markdown for the prose, Jupyter notebooks for the computation, one `myst.yml` for the configuration, and a GitHub Action that rebuilds and republishes on every push.
+:::

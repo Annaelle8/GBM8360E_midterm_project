@@ -1,21 +1,123 @@
+# # See docs at: https://mystmd.org/guide/frontmatter
+# version: 1
+# project:
+#   # TODO: make this yours
+#   title: 'My MyST Book'
+#   subtitle: An interactive book built with MyST
+#   # TODO: add yourself. This is the same author schema a real MOOC contribution uses.
+#   authors:
+#     - name: Your Name
+#       affiliations:
+#         - Polytechnique Montréal
+#   copyright: '2026'
+#   license: CC-BY-4.0
+#   open_access: true
+#   date: 2026-09-16
+#   keywords:
+#     - MRI
+#     - education
+
+#   numbering:
+#     headings: true
+
+#   # Hover any of these in the rendered text to see the expansion.
+#   abbreviations:
+#     MRI: Magnetic resonance imaging
+#     MR: Magnetic resonance
+#     TR: Repetition Time
+#     TE: Echo Time
+#     FA: Flip Angle
+#     FOV: Field of view
+#     PE: Phase encode
+#     RO: Readout
+#     FFT: Fast Fourier Transform
+#     DFT: Discrete Fourier Transform
+#     SNR: Signal-to-noise ratio
+#     CSF: Cerebrospinal fluid
+
+#   bibliography:
+#     - bibliography/references.bib
+
+#   exclude:
+#     - README.md
+
+#   # One source, several outputs.
+#   exports:
+#     # `template` matters here. The default is `plain_latex`, an ARTICLE template,
+#     # which renders only ONE document -- you get a title page and a single chapter
+#     # with no warning. `plain_latex_book` is a BOOK template: it lays out every
+#     # page in the toc, with a table of contents.
+#     #
+#     # Note that index.md becomes the title page rather than a chapter, so any prose
+#     # on it will not appear in the PDF. Put content you want in print on its own page.
+#     - format: typst
+#       template: plain_typst_book
+#       output: exports/my-myst-book.pdf
+#       # List the pages that belong in the PDF. Without this, the export sweeps in
+#       # EVERY built page -- including notebooks, which reprint their whole source and
+#       # a duplicate of the figure. Add new chapters here as well as in `toc`.
+#       articles:
+#         - file: index.md
+#         - file: 01-getting-started.md
+#         - file: 02-interactive-figures.md
+#         - file: 01-Physics_background.md
+#         - file: 02-GRE sequence.md
+#         - file: 03-Spoiling.md
+#         - file: 04-EPI.md
+#         - file: 05-Undersampling.md
+#         - file: 06-SENSE.md
+#         - file: 07-GRAPPA.md
+#         - file: notebooks/gre-artefacts.ipynb
+#           hidden: true
+
+#   toc:
+#     - file: index.md
+#     - file: 01-getting-started.md
+#     - file: 02-interactive-figures.md
+#     - file: 01-Physics_background.md
+#     - file: 02-GRE sequence.md
+#     - file: 03-Spoiling.md
+#     - file: 04-EPI.md
+#     - file: 05-Undersampling.md
+#     - file: 06-SENSE.md
+#     - file: 07-GRAPPA.md
+#     # Notebooks must appear in the toc for MyST to build (and execute) them --
+#     # otherwise `:::{figure} #label` has nothing to embed and silently renders empty.
+#     # `hidden: true` keeps it built and referenceable without publishing it as a
+#     # chapter of its own, so the reader gets the figure in context rather than a
+#     # second copy next to a page of source code.
+#     - file: notebooks/figure-demo.ipynb
+#       hidden: true
+#     - file: notebooks/gre-artefacts.ipynb
+#       hidden: true
+
+# site:
+#   template: book-theme
+#   options:
+#     logo_text: My MyST Book
+#   actions:
+#     - title: Source on GitHub
+#       url: https://github.com/GBM8360
+
+
+
 # See docs at: https://mystmd.org/guide/frontmatter
 version: 1
 project:
-  # TODO: make this yours
-  title: 'My MyST Book'
-  subtitle: An interactive book built with MyST
-  # TODO: add yourself. This is the same author schema a real MOOC contribution uses.
+  title: Fast imaging for an GRE sequence
   authors:
-    - name: Your Name
+    - name: Annaelle Sarrazin   # TODO: your full name
       affiliations:
         - Polytechnique Montréal
   copyright: '2026'
   license: CC-BY-4.0
   open_access: true
-  date: 2026-09-16
+  date: 2026-09-29
   keywords:
     - MRI
-    - education
+    - accelerated imaging
+    - gradient echo
+    - parallel imaging
 
   numbering:
     headings: true
@@ -23,17 +125,21 @@ project:
   # Hover any of these in the rendered text to see the expansion.
   abbreviations:
     MRI: Magnetic resonance imaging
-    MR: Magnetic resonance
-    TR: Repetition Time
-    TE: Echo Time
-    FA: Flip Angle
+    GRE: Gradient-recalled echo
+    FLASH: Fast low-angle shot
+    EPI: Echo-planar imaging
+    SENSE: Sensitivity encoding
+    GRAPPA: Generalized autocalibrating partially parallel acquisitions
+    ACS: Auto-calibration signal
+    TR: Repetition time
+    TE: Echo time
     FOV: Field of view
     PE: Phase encode
     RO: Readout
-    FFT: Fast Fourier Transform
-    DFT: Discrete Fourier Transform
+    RF: Radio-frequency
+    FFT: Fast Fourier transform
+    RSS: Root sum of squares
     SNR: Signal-to-noise ratio
-    CSF: Cerebrospinal fluid
 
   bibliography:
     - bibliography/references.bib
@@ -41,42 +147,42 @@ project:
   exclude:
     - README.md
 
-  # One source, several outputs.
   exports:
-    # `template` matters here. The default is `plain_latex`, an ARTICLE template,
-    # which renders only ONE document -- you get a title page and a single chapter
-    # with no warning. `plain_latex_book` is a BOOK template: it lays out every
-    # page in the toc, with a table of contents.
-    #
-    # Note that index.md becomes the title page rather than a chapter, so any prose
-    # on it will not appear in the PDF. Put content you want in print on its own page.
+    # A BOOK template (not the default article one), so every chapter is printed.
     - format: typst
       template: plain_typst_book
-      output: exports/my-myst-book.pdf
-      # List the pages that belong in the PDF. Without this, the export sweeps in
-      # EVERY built page -- including notebooks, which reprint their whole source and
-      # a duplicate of the figure. Add new chapters here as well as in `toc`.
+      output: exports/k-space-painters.pdf
       articles:
         - file: index.md
-        - file: 01-getting-started.md
-        - file: 02-interactive-figures.md
+        - file: 01-Physics_background.md
+        - file: 02-gre.md
+        - file: 03-epi.md
+        - file: 04-undersampling.md
+        - file: 05-sense.md
+        - file: 06-grappa.md
+        - file: 08-epilogue.md
 
   toc:
     - file: index.md
-    - file: 01-getting-started.md
-    - file: 02-interactive-figures.md
-    # Notebooks must appear in the toc for MyST to build (and execute) them --
-    # otherwise `:::{figure} #label` has nothing to embed and silently renders empty.
-    # `hidden: true` keeps it built and referenceable without publishing it as a
-    # chapter of its own, so the reader gets the figure in context rather than a
-    # second copy next to a page of source code.
-    - file: notebooks/figure-demo.ipynb
+    - file: 01-Physics_background.md
+    - file: 02-gre.md
+    - file: 03-epi.md
+    - file: 04-undersampling.md
+    - file: 05-sense.md
+    - file: 06-grappa.md
+    - file: 08-epilogue.md
+    # The notebook that computes every figure. It must be in the toc for MyST to
+    # build it, otherwise `:::{figure} #label` has nothing to embed. `hidden: true`
+    # keeps it out of the sidebar.
+    - file: notebooks/gre-artefacts.ipynb
+      hidden: true
+    - file: notebooks/figures.ipynb
       hidden: true
 
 site:
   template: book-theme
   options:
-    logo_text: My MyST Book
+    logo_text: The k-Space Painters
   actions:
     - title: Source on GitHub
-      url: https://github.com/GBM8360
+      url: https://github.com/GBM8360/lab2-Annaelle8
