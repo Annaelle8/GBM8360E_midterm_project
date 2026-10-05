@@ -21,7 +21,7 @@ Scientist C showed that painting fewer lines is fast but leaves copies. Scientis
 
 ## SENSE
 
-SENSE needs a short, low-resolution reference scan to measure the sensitivity map of each coil before the real acquisition {cite:p} `Pruessmann1999`.
+SENSE needs a short, low-resolution reference scan to measure the sensitivity map of each coil before the real acquisition {cite:p}`Pruessmann1999`.
 
 :::{figure} #figCoilMaps
 :label: coilMaps
@@ -162,9 +162,3 @@ At $R = 2$ the result is almost perfect, and at $R = 3$ it is only a little nois
 $$ \text{SNR}_R = \frac{\text{SNR}_\text{full}}{g\,\sqrt{R}}, \qquad g \geq 1. $$ (eqGfactor)
 
 Modern head coils have 32 or 64 small coils, which keeps $g$ close to 1 for accelerations of 2 to 4.
-
-:::{seealso} Who really had this idea?
-SENSE was published by Klaas Pruessmann, Markus Weiger, Markus Scheidegger and Peter
-Boesiger at ETH Zürich {cite:p}`Pruessmann1999`, shortly after the first parallel imaging
-method, SMASH {cite:p}`Sodickson1997`. A friendly review is {cite:p}`Deshmane2012`.
-:::
