@@ -2,12 +2,12 @@
 title: GRAPPA - Parallel imaging in k-space
 ---
 
+## Scientist E: a different way to use the team
+
 :::{figure} images/comics/06-grappa.svg
 :label: comicGrappa
 :alt: Grappa asks the four painters to paint the middle of the canvas completely, then fills in every missing line by guessing from its neighbours.
 :::
-
-## A different way to use the team
 
 Scientist E likes the idea of having four painters work at the same time. But he does not like the SENSE method: it needs a separate reference scan to measure each coil’s sensitivity, and if the flower moves between the reference scan and the accelerated scan, the unfolding can become inaccurate.
 

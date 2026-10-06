@@ -43,7 +43,6 @@ In a standard cartesian undersampling (see [](./06-grappa.md)) {cite:p}`Griswold
 - Central k-space lines are always acquired: they carry ~90% of the image energy and cannot be sacrificed. There are essential for stable reconstruction. They are called Autoalibration Signal (ACS)
 - Outer lines are randomly subsampled at rate $1/R$ introduces incoherent aliasing
 
-### Effect
 Zeroing out k-space lines creates aliasing artifacts in the reconstructed image only correctable with knowledge of the acquisition geometry ([](#undersampling)).
 
 :::{figure} #figUndersampling
@@ -57,7 +56,7 @@ As $R$ increases, fewer lines are acquired and the acquisition time is shorter, 
 
 The k-space was downsampled by a factor $R$ in the phase encoding direction by keeping every $R$ k-space line. Same as before, this increases the sampling interval ${\Delta k}$ in that direction. Since $FOV = \frac{1}{\Delta k}$, the FOV is reduced by a factor $R$ in the downsampled direction. However, $k_{max}$ remains unchanged, so the spatial resolution is preserved. The magnitude and phase images have therefore a smaller FOV with aliasing artefact (wrap-around).
 
-### Reconstruction
+## Reconstruction
 
 Sampling occur in an MRI acquisition when using an fast imaging sequence to reduce the acquisition time. If the undersampled k-space is directly reconstructed using an IFFT, the resulting image will contain aliasing artifacts as shown before. But reconstruction techniques such as SENSE or GRAPPA can be used to interpolate the missing k-space line allowing to approximately recover the reference image. 
 

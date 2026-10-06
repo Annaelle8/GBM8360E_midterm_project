@@ -19,7 +19,7 @@ Scientist C showed that painting fewer lines is fast but leaves copies. Scientis
 | Everyone skips the same lines | Undersampling by a factor $R$ shared by all coils |
 | The computer unfolds the picture | SENSE reconstruction (image domain) |
 
-## SENSE
+## Sensitivity map
 
 SENSE needs a short, low-resolution reference scan to measure the sensitivity map of each coil before the real acquisition {cite:p}`Pruessmann1999`.
 
@@ -47,6 +47,8 @@ The folded picture from each coil, with $R = 2$. The copies overlap in the same 
 :::
 
 ## Unfolding, pixel by pixel
+
+# Zoom on a single pixel
 
 Let’s zoom in on a single pixel of a folded image acquired with $R=2$ using two coils.
 
