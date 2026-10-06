@@ -48,7 +48,7 @@ The folded picture from each coil, with $R = 2$. The copies overlap in the same 
 
 ## Unfolding, pixel by pixel
 
-# Zoom on a single pixel
+### Zoom on a single pixel
 
 Let’s zoom in on a single pixel of a folded image acquired with $R=2$ using two coils.
 
